@@ -1,17 +1,12 @@
 # Data Visualization App using [Next.JS](https://nextjs.org/)
 
 This project is an exercise in my study of NextJS and ReactJS.<br>
-The main objective is to use HTML Canvas in React application.
+The main objective is to use data visualization modules in React.
 
 ## Description
 
-* The images are taken randomly from a JSON list.
-
-* The Count property is the number of division. It should be a square number.<br>
-You can select from 4, 9, 16 and 25.
-
-* There are other miscellaneous properties that you can customize.
-
+This project is a sample visualization app modeled on the Coronavirus tracker.<br>
+The data are just dummy.
 
 ## Available Scripts
 

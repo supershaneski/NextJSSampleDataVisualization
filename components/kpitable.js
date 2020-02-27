@@ -12,20 +12,24 @@ export default function KPITable(props) {
     return (
         <>
         <table>
-            <tr>
-                <th>Admitted PUI</th>
-                <th>Discharged PUI</th>
-                <th>Confirmed</th>
-                <th>Recovered</th>
-                <th>Death</th>
-            </tr>
-            <tr class="kpi-metrics">
-                <td id="kpi-admitted">101</td>
-                <td id="kpi-discharged">510</td>
-                <td id="kpi-confirmed">3</td>
-                <td id="kpi-recovered">2</td>
-                <td id="kpi-death">1</td>
-            </tr>                       
+            <thead>
+                <tr>
+                    <th>Admitted PUI</th>
+                    <th>Discharged PUI</th>
+                    <th>Confirmed</th>
+                    <th>Recovered</th>
+                    <th>Death</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr className="kpi-metrics">
+                    <td id="kpi-admitted">101</td>
+                    <td id="kpi-discharged">510</td>
+                    <td id="kpi-confirmed">3</td>
+                    <td id="kpi-recovered">2</td>
+                    <td id="kpi-death">1</td>
+                </tr>
+            </tbody>               
         </table>
         <style jsx>
             {`

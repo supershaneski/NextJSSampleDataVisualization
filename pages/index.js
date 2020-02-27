@@ -83,8 +83,17 @@ function Index() {
         </main>
         <style jsx>
             {`
+            main {
+                margin: 0px auto;
+                width: 90%;
+            }
             section {
                 margin: 20px 0px;
+            }
+            @media only screen and (max-width:640px) {
+                main {
+                    width: 100%;
+                }
             }
             `}
         </style>
