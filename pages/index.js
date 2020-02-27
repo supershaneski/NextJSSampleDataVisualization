@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import KPITable from '../components/kpitable';
+import ChartMap from '../components/chartmap';
 import ChartPUI from '../components/chartpui';
 import ChartTotal from '../components/charttotal';
 import RegionTable from '../components/regiontable';
@@ -57,6 +58,10 @@ function Index() {
 
             <section id="kpi-container">
                 <KPITable />
+            </section>
+
+            <section id="mapchart-container">
+                <ChartMap />
             </section>
 
             <section id="puichart-container">

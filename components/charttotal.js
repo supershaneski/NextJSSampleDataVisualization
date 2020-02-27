@@ -124,6 +124,7 @@ export default function ChartTotal(props) {
             {
                 list_data.map((item, index) => {
                     return <VictoryLine
+                    key={index}
                     style={{
                     data: { stroke: data_colors[index] },
                     parent: { border: "1px solid #ccc"}
