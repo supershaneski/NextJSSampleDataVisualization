@@ -7,7 +7,7 @@ module.exports = {
       return config
     },
     env: {
-        siteTitle: 'Sample Data Visualization App'
+        siteTitle: 'Sample Data Visualization'
     },
     exportTrailingSlash: true,
     exportPathMap: function() {

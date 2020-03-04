@@ -1,37 +1,116 @@
-import React, { Component } from 'react';
-import KPITable from '../components/kpitable';
-import ChartMap from '../components/chartmap';
-import ChartPUI from '../components/chartpui';
-import ChartTotal from '../components/charttotal';
-import RegionTable from '../components/regiontable';
-import HelpfulLinks from '../components/helpfullinks';
+import React from 'react';
+import { csv } from "d3-fetch";
+import Bar from '../components/bar';
+import Line from '../components/line';
+import Table from '../components/table';
+import Map from '../components/map';
 
-class Clock extends Component {
+const Header = () => {
+    const siteTitle = process.env.siteTitle;
+    return (
+        <>
+        <header>
+            <h1 className="lightest">{ siteTitle }</h1>
+        </header>
+        <style jsx>
+            {`
+            header {
+                backgroundColor: transparent;
+                text-align: center;
+            }
+            `}
+        </style>
+        </>
+    )
+}
+
+const Footer = () => {
+    return (
+        <>
+        <footer>
+            <small>
+                <span className="lighter">Copyright &copy; 2020</span>&nbsp;
+                <span className="lighter">All rights reserved</span>
+            </small>
+        </footer>
+        <style jsx>
+            {`
+                footer {
+                    text-align: center;
+                    padding: 10px 0px;
+                    font-size: 0.8em;
+                }
+            `}
+        </style>
+        </>
+    )
+}
+
+export default class Index extends React.Component {
     constructor() {
         super()
-        this.timer = null;
         this.state = {
-            time: new Date()
+            chart_data: [],
+            region_data: []
         }
     }
+    
     componentDidMount() {
-        this.timer = setInterval(() => {
+        csv(`http://localhost:3000/chart-data.csv`).then(data => {
             this.setState({
-                time: new Date()
+                chart_data: data
             })
-        }, 1000)
+        });
+        csv(`http://localhost:3000/region-data.csv`).then(data => {
+            this.setState({
+                region_data: data
+            })
+        });
     }
-    componentWillUnmount() {
-        clearInterval(this.timer)
-    }
+
     render() {
         return (
             <>
-            <p>{ this.state.time.toLocaleTimeString() }</p>
+            <Header />
+            <main>
+                
+                <section>
+                    <h4>Map Chart</h4>
+                    <Map data={this.state.region_data} />
+                </section>
+                
+                <section>
+                    <h4>Table Chart</h4>
+                    <Table data={this.state.region_data} />
+                </section>
+
+                <section>
+                    <h4>Bar Chart</h4>
+                    <Bar 
+                        data={this.state.chart_data} 
+                        colors={['royalblue', 'crimson']} 
+                    />
+                </section>
+                
+                <section>
+                    <h4>Line Chart</h4>
+                    <Line data={this.state.chart_data} colors={['royalblue', 'crimson']} />
+                </section>
+
+            </main>            
+            <Footer />
             <style jsx>
                 {`
-                p {
-                    color: #ddd;
+                main {
+                    background-color: #fff;
+                    border-radius: 16px;
+                    overflow: hidden;
+                }
+                section {
+                    position: relative;
+                    width: 80%;
+                    margin: 0px auto;
+                    padding-bottom: 24px;
                 }
                 `}
             </style>
@@ -39,70 +118,3 @@ class Clock extends Component {
         )
     }
 }
-
-function Index() {
-
-    const lastUpdate = new Date();
-
-    return (
-        <>
-        <main>
-            
-            <header>
-                <h1>Coronavirus Disease (COVID-19) Sample Tracker</h1>
-                <em><small>
-                <span>Last Updated:</span>&nbsp;
-                <strong>{ lastUpdate.toUTCString() }</strong></small></em>
-                <Clock />
-            </header>
-
-            <section id="kpi-container">
-                <KPITable />
-            </section>
-
-            <section id="mapchart-container">
-                <ChartMap />
-            </section>
-
-            <section id="puichart-container">
-                <ChartPUI />
-            </section>
-            
-            <section id="totalchart-container">
-                <ChartTotal />
-            </section>
-            
-            <section id="region-container">
-                <RegionTable />
-            </section>
-
-            <Clock />
-            <section id="links-container">
-                <HelpfulLinks />
-            </section>            
-            
-            <footer>
-                Copyright &copy; 2020 All rights reserved
-            </footer>
-
-        </main>
-        <style jsx>
-            {`
-            main {
-                margin: 0px auto;
-                width: 90%;
-            }
-            section {
-                margin: 20px 0px;
-            }
-            @media only screen and (max-width:640px) {
-                main {
-                    width: 100%;
-                }
-            }
-            `}
-        </style>
-        </>
-    )
-}
-export default Index;

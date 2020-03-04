@@ -1,6 +1,7 @@
 import App from 'next/app';
 import Head from 'next/head';
-//import '../style/app.css';
+// Base CSS Style
+import '../style/app.css';
 
 export default function MyApp({ Component, pageProps }) {
     const siteTitle = process.env.siteTitle;

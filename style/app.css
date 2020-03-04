@@ -1,0 +1,39 @@
+body {
+    background-color: #e6e6e6;
+    font-family: 'Roboto','Helvetica Neue', Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    color: #2a363c;
+}
+
+p {
+    color: #455a64;
+}
+
+.dark {
+    color: #2a363c;
+}
+.def {
+    color: #455a64;
+}
+.light {
+    color: #5e7a87;
+}
+.lighter {
+    color: #96acb6;
+}
+.lightest {
+    color: #b4c3cb;
+}
+
+.bgdark {
+    background-color: #3f525a;
+}
+.bglight {
+    background-color: #d2dbe0;
+}
+
+path {
+    outline: none;
+}

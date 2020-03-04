@@ -1,12 +1,20 @@
 # Data Visualization App using [Next.JS](https://nextjs.org/)
 
-This project is an exercise in my study of NextJS and ReactJS.<br>
-The main objective is to use data visualization modules in React.
+This project is an exercise in my study of ReactJS.<br>
+This is my first attempt to make a data visualization application.
 
 ## Description
 
-This project is a sample visualization app modeled on the Coronavirus tracker.<br>
-The data are just dummy.
+Please note that the data are just dummy.<br>
+It is based from COVID-19 outbreak data.<br><br>
+
+* The data are read from csv files using [d3-fetch](https://github.com/d3/d3-fetch) module.
+
+* Bar and Line charts use [victory](https://formidable.com/open-source/victory/docs/) module.
+
+* The map visualization is using [react-simple-maps](https://www.react-simple-maps.io/) module.
+
+* The map and table charts use the same data while the bar and line charts uses also the same data.
 
 ## Available Scripts
 
@@ -25,6 +33,6 @@ The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
 
-## TODO
+## Todo
 
 Handle browser resize and viewport orientation. 
