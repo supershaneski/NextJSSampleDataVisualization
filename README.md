@@ -17,13 +17,11 @@ It is based from COVID-19 outbreak data.<br><br>
 * The map and table charts use the same data while the bar and line charts uses also the same data.
 
 ![Map Chart](docs/map.png)
-Map chart sample
 
 ![Bar Chart](docs/bar.png)
-Bar chart sample
 
 ![Line Chart](docs/line.png)
-Line chart sample
+
 
 ## Available Scripts
 
