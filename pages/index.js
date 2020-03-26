@@ -97,7 +97,7 @@ export default class Index extends React.Component {
                     <Line data={this.state.chart_data} colors={['royalblue', 'crimson']} />
                 </section>
 
-            </main>            
+            </main>
             <Footer />
             <style jsx>
                 {`

@@ -5,12 +5,15 @@ import { VictoryLine, VictoryStack,
 import Legend from './legend';
 
 export default class Line extends React.Component {
+    
     constructor(props) {
         super(props)
+        
         this.container = React.createRef()
         this.state = {
             displayCount: 100
         }
+
     }
     
     componentDidMount() {

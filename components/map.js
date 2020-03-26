@@ -32,7 +32,9 @@ function getColorScale(value, min = 0, max = 100, mincolor = "#f8b9c6", maxcolor
 export default class Map extends React.Component {
     constructor(props) {
         super(props)
+
         this.toolTip = React.createRef()
+
         this.state = {
             data: undefined,
             selected: {
@@ -41,9 +43,11 @@ export default class Map extends React.Component {
             },
             flagShow: false,
         }
+
         this.projection = this.projection.bind(this)
-        this.handleHover.bind(this)
-        this.handleOut.bind(this)
+        this.handleHover = this.handleHover.bind(this)
+        this.handleOut = this.handleOut.bind(this)
+        
     }
     projection() {
         return geoTimes()
@@ -83,9 +87,7 @@ export default class Map extends React.Component {
             },
             flagShow: true
         })
-
-
-
+        
     }
     render() {
 
@@ -114,6 +116,7 @@ export default class Map extends React.Component {
         }
 
         const flagToolTip = (this.state.flagShow)?'block':'none';
+        
         return (
             <>
             <div className="map-container">

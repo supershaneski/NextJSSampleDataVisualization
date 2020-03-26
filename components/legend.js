@@ -13,6 +13,7 @@ class Legend extends React.Component {
         //this.resizeContainer();
         //window.addEventListener("resize", this.resizeContainer.bind(this));
     }
+    
     resizeContainer() {
         if(!this.container) return;
         const width = this.container.offsetWidth;
