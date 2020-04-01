@@ -56,13 +56,15 @@ export default class Index extends React.Component {
     }
     
     componentDidMount() {
-        csv(`http://localhost:3000/chart-data.csv`).then(data => {
-            this.setState({
+        //csv(`http://localhost:3000/chart-data.csv`).then(data => {
+        csv(`/chart-data.csv`).then(data => {
+                this.setState({
                 chart_data: data
             })
         });
-        csv(`http://localhost:3000/region-data.csv`).then(data => {
-            this.setState({
+        //csv(`http://localhost:3000/region-data.csv`).then(data => {
+        csv(`/region-data.csv`).then(data => {
+                this.setState({
                 region_data: data
             })
         });
